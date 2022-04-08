@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "736abf9c-0509-4b4e-ab99-c803179bf36e": {
+      "ProjectGuid": "736abf9c-0509-4b4e-ab99-c803179bf36e",
+      "DisplayName": "Application_v3",
+      "ColorIndex": 0
+    },
+    "523c065a-dccb-4e82-b474-7e35acfd9467": {
+      "ProjectGuid": "523c065a-dccb-4e82-b474-7e35acfd9467",
+      "DisplayName": "Library",
+      "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Fichiers divers",
+      "ColorIndex": -1
+    }
+  },
+  "NextColorIndex": 2
+}

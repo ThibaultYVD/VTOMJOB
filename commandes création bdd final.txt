@@ -1,0 +1,68 @@
+CREATE DATABASE vtomjob
+USE vtomjob
+
+
+CREATE TABLE Etats(
+etat VARCHAR(20) PRIMARY KEY NOT NULL
+);
+
+
+
+CREATE TABLE Statuts(
+statut VARCHAR(20) PRIMARY KEY NOT NULL
+);
+
+
+
+CREATE TABLE Jobs (
+job_id INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
+etat_job VARCHAR(20) NOT NULL,
+statut_job VARCHAR(20) NOT NULL,
+fichier_src VARCHAR(150) NOT NULL,
+type_suffixe TINYINT NOT NULL,
+crlf TINYINT NOT NULL,
+date_heure VARCHAR(30) NOT NULL,
+date_heure_resultat VARCHAR(30) NOT NULL,
+etat_resultat VARCHAR(20) NOT NULL,
+
+FOREIGN KEY (etat_job)
+REFERENCES Etats (etat),
+
+FOREIGN KEY (statut_job)
+REFERENCES Statuts(statut)
+);
+
+
+
+CREATE TABLE Destinations(
+destination_id INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
+job_id INT NOT NULL,
+etat_copie VARCHAR(20) NOT NULL,
+destination VARCHAR(150) NOT NULL,
+droit_acces VARCHAR(20) NOT NULL,
+
+FOREIGN KEY (job_id)
+REFERENCES Jobs (job_id),
+);
+
+
+
+CREATE TABLE Logs(
+log_id INT IDENTITY (1,1) PRIMARY KEY NOT NULL,
+horodatage DATETIME NOT NULL,
+fichier_src VARCHAR(150),
+destination VARCHAR(150),
+etat_copie VARCHAR(20),
+information TEXT, 
+);
+
+
+
+
+INSERT INTO Etats VALUES('Succès');
+INSERT INTO Etats VALUES('Echec');
+INSERT INTO Etats VALUES('En cours');
+INSERT INTO Etats VALUES('En attente');
+
+INSERT INTO Statuts VALUES('Actif');
+INSERT INTO Statuts VALUES('Inactif');
